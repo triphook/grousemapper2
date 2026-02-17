@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abra29</title>
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+
+    <script>
+        // Add Tabs
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.getElementById('welcome').click();
+        });
+
+    </script>
+
+
+  <script type="module" crossorigin src="/grousemapper/assets/index-3k9nxUc3.js"></script>
+  <link rel="stylesheet" crossorigin href="/grousemapper/assets/index-DEXGDbOd.css">
+</head>
+
+<header>
+    <h1>🗺️ West Virginia Highlands Grouse Mapper</h1>
+</header>
+
+
+<body>
+<div class="container">
+    <div id="map"></div>
+    <div class="layer-control">
+        <div class="tab">
+            <button id="welcome" class="tablinks" onclick="openTab(event, 'about')">About</button>
+            <button class="tablinks" onclick="openTab(event, 'baselayers')">Baselayers</button>
+            <button class="tablinks" onclick="openTab(event, 'public_lands')">Public Lands</button>
+            <button class="tablinks" onclick="openTab(event, 'context_layers')">Contextual Layers</button>
+        </div>
+        <div id="about" , class="tabcontent">
+            The Appalachian Highlands of West Virginia represent the southernmost extent of the range of the Ruffled
+            Grouse <i>(Bonasa umbellus)</i>, which extends north across much of Canada and Alaska.
+        </div>
+        <div id="baselayers" , class="tabcontent">
+            These are base layers
+            <div class="layer-item" data-layer="osm">
+                <div class="layer-header">
+                    <div class="toggle-switch active"></div>
+                    <div class="layer-name">OpenStreetMap</div>
+                </div>
+                <div class="layer-description">
+                    Standard street map with detailed geographic features
+                </div>
+                <div class="opacity-control">
+                    <label>Opacity: <span class="opacity-value">100%</span></label>
+                    <input type="range" class="opacity-slider" min="0" max="100" value="100">
+                </div>
+            </div>
+
+            <div class="layer-item" data-layer="satellite">
+                <div class="layer-header">
+                    <div class="toggle-switch"></div>
+                    <div class="layer-name">Satellite Imagery</div>
+                </div>
+                <div class="layer-description">
+                    High-resolution satellite and aerial photography
+                </div>
+                <div class="opacity-control">
+                    <label>Opacity: <span class="opacity-value">100%</span></label>
+                    <input type="range" class="opacity-slider" min="0" max="100" value="100">
+                </div>
+            </div>
+
+            <div class="layer-item" data-layer="terrain">
+                <div class="layer-header">
+                    <div class="toggle-switch"></div>
+                    <div class="layer-name">Terrain</div>
+                </div>
+                <div class="layer-description">
+                    Topographic relief map showing elevation and landforms
+                </div>
+                <div class="opacity-control">
+                    <label>Opacity: <span class="opacity-value">100%</span></label>
+                    <input type="range" class="opacity-slider" min="0" max="100" value="100">
+                </div>
+            </div>
+        </div>
+        <div id="public_lands" , class="tabcontent">
+            These are public lands
+            <div class="layer-item" data-layer="stateForest">
+                <div class="layer-header">
+                    <div class="toggle-switch active"></div>
+                    <div class="layer-name">State Forests</div>
+                </div>
+                <div class="layer-description">
+                    Units of West Virginia's State Forest system
+                </div>
+                <div class="opacity-control">
+                    <label>Opacity: <span class="opacity-value">100%</span></label>
+                    <input type="range" class="opacity-slider" min="0" max="100" value="100">
+                </div>
+            </div>
+        </div>
+        <div id="context_layers" , class="tabcontent">
+            These are context layers
+            <div class="layer-item" data-layer="suitability">
+                <div class="layer-header">
+                    <div class="toggle-switch active"></div>
+                    <div class="layer-name">Landscape Suitability</div>
+                </div>
+                <div class="layer-description">
+                    Modeled suitability of landscape for Ruffed Grouse habitat
+                </div>
+                <div class="opacity-control">
+                    <label>Opacity: <span class="opacity-value">100%</span></label>
+                    <input type="range" class="opacity-slider" min="0" max="100" value="100">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
