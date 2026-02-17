@@ -10,14 +10,26 @@ import GeoJSON from 'ol/format/GeoJSON';
 
 // Tester
 const vectorSource = new VectorSource({
-  url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0/query?where=1=1&outFields=*&f=geojson',
-  format: new GeoJSON(),
-  //url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0/query?where=1=1&outFields=*&f=geojson', // Path to your GeoJSON file
+    //url: 'https://openlayers.org/data/vector/ecoregions.json',
+    url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0/query?where=1=1&outFields=*&f=geojson',
+    format: new GeoJSON({
+        //dataProjection: 'EPSG:26917',
+        featureProjection: 'EPSG:3857'
+    }),
 });
 
 
-var stateForestLayer = new VectorLayer({
-  source: vectorSource,
+const stateForestLayer = new VectorLayer({
+    source: vectorSource,
+});
+
+
+const suitabilityLayer = new ol.layer.Tile({
+    source: new ol.source.XYZ({
+        minZoom: 2,
+        maxZoom: 10,
+        url: 'https://storage.googleapis.com/grousemapper/rugr_LC_3_tiles/{z}/{x}/{-y}.png'
+    })
 });
 
 
@@ -44,12 +56,12 @@ const terrainLayer = new ol.layer.Tile({
 });
 
 const map = new Map({
-  target: 'map',
-  layers: [stateForestLayer],
-  view: new View({
-    center: ol.proj.fromLonLat([-80.181745, 38.92017]), // Center of USA
-    zoom: 7
-  })
+    target: 'map',
+    layers: [osmLayer, satelliteLayer, terrainLayer, suitabilityLayer, stateForestLayer],
+    view: new View({
+        center: ol.proj.fromLonLat([-80.181745, 38.92017]), // Center of WV
+        zoom: 7
+    })
 });
 
 
@@ -58,8 +70,13 @@ const layerMap = {
     'osm': osmLayer,
     'satellite': satelliteLayer,
     'terrain': terrainLayer,
-    'stateForest': stateForestLayer
+    'stateForest': stateForestLayer,
+    'suitability': suitabilityLayer
 };
+
+//map.addLayer(osmLayer);
+//map.addLayer(satelliteLayer);
+//map.addLayer(terrainLayer);
 
 document.querySelectorAll('.layer-item').forEach(item => {
     const layerName = item.dataset.layer;
