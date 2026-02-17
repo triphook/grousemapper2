@@ -1,16 +1,24 @@
 import './style.css';
 import {Map, View} from 'ol';
-import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import ImageLayer from 'ol/layer/Image.js';
-import TileLayer from 'ol/layer/Tile.js';
-import ImageArcGISRest from 'ol/source/ImageArcGISRest.js';
+import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
+import ImageLayer from 'ol/layer/Image';
+import VectorSource from 'ol/source/Vector';
+import GeoJSON from 'ol/format/GeoJSON';
 
-const stateForestLayer = new ImageArcGISRest({
-      ratio: 1,
-      params: {},
-      url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0',
-    }),
+
+// Tester
+const vectorSource = new VectorSource({
+  url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0/query?where=1=1&outFields=*&f=geojson',
+  format: new GeoJSON(),
+  //url: 'https://services6.arcgis.com/cGI8zn9Oo7U9dF6z/arcgis/rest/services/WV_Public_Lands_pro/FeatureServer/0/query?where=1=1&outFields=*&f=geojson', // Path to your GeoJSON file
+});
+
+
+var stateForestLayer = new VectorLayer({
+  source: vectorSource,
+});
 
 
 // Initialize map layers
@@ -35,21 +43,22 @@ const terrainLayer = new ol.layer.Tile({
     visible: false
 });
 
-// Create map
-const map = new ol.Map({
-    target: 'map',
-    layers: [osmLayer, satelliteLayer, terrainLayer],
-    view: new ol.View({
-        center: ol.proj.fromLonLat([-98.5795, 39.8283]), // Center of USA
-        zoom: 4
-    })
+const map = new Map({
+  target: 'map',
+  layers: [stateForestLayer],
+  view: new View({
+    center: ol.proj.fromLonLat([-80.181745, 38.92017]), // Center of USA
+    zoom: 7
+  })
 });
+
 
 // Layer control functionality
 const layerMap = {
     'osm': osmLayer,
     'satellite': satelliteLayer,
-    'terrain': stateForestLayer
+    'terrain': terrainLayer,
+    'stateForest': stateForestLayer
 };
 
 document.querySelectorAll('.layer-item').forEach(item => {
