@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abra29</title>
+    <title>West Virginia Grouse Mapper</title>
     <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
     <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
-
     <script>
         // Add Tabs
         function openTab(evt, tabName) {
@@ -44,13 +43,21 @@
 </head>
 
 <header>
-    <h1>🗺️ West Virginia Highlands Grouse Mapper</h1>
+    <h1><img src="https://storage.googleapis.com/grousemapper/grouse.png" alt="Ruffed Grouse" width="40" height="40">West
+        Virginia Grouse Mapper</h1>
 </header>
 
 
 <body>
 <div class="container">
     <div id="map"></div>
+
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+
+
     <div class="layer-control">
         <div class="tab">
             <button id="welcome" class="tablinks" onclick="openTab(event, 'about')">About</button>
@@ -61,6 +68,23 @@
         <div id="about" , class="tabcontent">
             The Appalachian Highlands of West Virginia represent the southernmost extent of the range of the Ruffled
             Grouse <i>(Bonasa umbellus)</i>, which extends north across much of Canada and Alaska.
+
+            This application displays all major public lands in West Virginia and provides insight on where these lands
+            overlap with optimal grouse habitat. Please confirm hunting regulations in any particular unit prior to
+            hunting.
+            <!-- Read this dynamically from js-->
+            <h3>West Virginia Grouse Hunting regulations</h3>
+            <div id="regulations">
+                <h4>Opening Date:</h4>
+                <p id="opening_date">October 18</p>
+                <h4>Closing Date:</h4>
+                <p id="closing_date">February 28</p>
+                <h4>Daily Bag Limit:</h4>
+                <p id="daily_bag_limit">4</p>
+                <h4>Possession Limit:</h4>
+                <p id="possession_limit">16</p>
+            </div>
+            THIS APP IS FOR DEMONSTRATION PURPOSES ONLY. Please contact <a href="mailto:jchook3@gmail.com">James Hook</a> with questions.
         </div>
         <div id="baselayers" , class="tabcontent">
             These are base layers
@@ -107,14 +131,13 @@
             </div>
         </div>
         <div id="public_lands" , class="tabcontent">
-            These are public lands
-            <div class="layer-item" data-layer="stateForest">
+            <div class="layer-item" data-layer="boundaries">
                 <div class="layer-header">
                     <div class="toggle-switch active"></div>
-                    <div class="layer-name">State Forests</div>
+                    <div class="layer-name">Public Land Boundaries</div>
                 </div>
                 <div class="layer-description">
-                    Units of West Virginia's State Forest system
+                    State and federally owned land in West Virginia
                 </div>
                 <div class="opacity-control">
                     <label>Opacity: <span class="opacity-value">100%</span></label>
@@ -123,10 +146,12 @@
             </div>
         </div>
         <div id="context_layers" , class="tabcontent">
-            These are context layers
+            This dataset depicts the potential capability of the landscape throughout the Northeastern United States to
+            provide habitat for Ruffed Grouse. Higher quality habitat is depicted in green.
+            <a href="https://databasin.org/datasets/02b5675374cf49449d0adfce1236ce6f">Source</a>
             <div class="layer-item" data-layer="suitability">
                 <div class="layer-header">
-                    <div class="toggle-switch active"></div>
+                    <div class="toggle-switch"></div>
                     <div class="layer-name">Landscape Suitability</div>
                 </div>
                 <div class="layer-description">
@@ -140,6 +165,7 @@
         </div>
     </div>
 </div>
+
 <script type="module" src="./main.js"></script>
 </body>
 </html>

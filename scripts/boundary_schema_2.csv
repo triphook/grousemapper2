@@ -1,0 +1,27 @@
+Layer,Field,Rename,Sample
+WV State Forest Lands,Category,Category, Fee
+WV State Forest Lands,Loc_Mang,Manager, West Virginia Division of Forestry
+WV State Forest Lands,Unit_Nm,Name, Camp Creek State Forest
+WV State Forest Lands,GIS_Acres,Acres,5308
+WV State Parks,Category,Category, Fee
+WV State Parks,Own_Type,OwnershipType, PVT
+WV State Parks,Loc_Own,Owner, Du Pont E I De Nemours & Co
+WV State Parks,Unit_Nm,Name, Blennerhassett Island Historical State Park
+WV State Parks,GIS_Acres,Acres,503
+WV State Parks,WebsiteURL,Website, https://wvstateparks.com/park/blennerhassett-island-historical-state-park/
+NPS Lands WV,ACRES,Acres,4313.144
+NPS Lands WV,PARK_NAME,Name, BLUESTONE NSR
+NWR USFS Lands,Category,Category, Fee
+NWR USFS Lands,Mang_Name,Manager, FWS
+NWR USFS Lands,Unit_Nm,Name, Canaan Valley National Wildlife Refuge
+NWR USFS Lands,GIS_Acres,Acres,16533
+NWR USFS Lands,Access,Access, RA
+WildernessAreas,WILD,Name, Otter Creek Wilderness
+WildernessAreas,GIS_ACRES,Acres,20710.75294
+WVDNR Managed Lands,Category,Category, Fee
+WVDNR Managed Lands,Own_Type,OwnershipType, STAT
+WVDNR Managed Lands,Loc_Own,Owner, WV Division of Natural Resources
+WVDNR Managed Lands,Loc_Mang,Manager, WV Division of Natural Resources
+WVDNR Managed Lands,Unit_Nm,Name, Cove Creek Wildlife Management Area
+WVDNR Managed Lands,GIS_Acres,Acres,432
+WVDNR Managed Lands,Access,Access, Open Access

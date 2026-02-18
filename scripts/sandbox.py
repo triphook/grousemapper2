@@ -1,1 +1,0 @@
-from osgeo_utils.gdal2tiles import main

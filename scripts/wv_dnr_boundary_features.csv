@@ -1,0 +1,8 @@
+name,path
+Natural Areas,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_Natural_Areas/FeatureServer
+Wildlife Management Areas,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_Wildlife_Management_Areas/FeatureServer
+State Forests,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_State_Forests/FeatureServer
+State Parks,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_State_Parks/FeatureServer
+National Park Service Lands,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_National_Park_Service_Lands/FeatureServer
+USACE Recreation Areas,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_USACE_Recreation_Areas/FeatureServer
+USFWS National Wildlife Refuges,https://services9.arcgis.com/SQbkdxLkuQJuLGtx/arcgis/rest/services/West_Virginia_USFWS_National_Wildlife_Refuges/FeatureServer
